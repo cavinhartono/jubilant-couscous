@@ -4,7 +4,7 @@
       <a href="/about" class="link">About</a>
     </li>
     <li class="list">
-      <a href="#" class="link">dashy</a>
+      <a href="#" class="link" style="font-weight: 700;">dashy</a>
     </li>
     <li class="list">
       <a href="/auth" class="link">

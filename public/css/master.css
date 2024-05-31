@@ -1,12 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background: var(--saltpan-50);
+    color: var(--shark-950);
 }
 
 :root {
-  
+    --saltpan-50: #f2fbf8;
+    --saltpan-100: #d3f4ea;
+    --saltpan-200: #a7e8d4;
+    --saltpan-300: #74d4bb;
+    --saltpan-400: #47baa0;
+    --saltpan-500: #2d9f86;
+    --saltpan-600: #227f6d;
+    --saltpan-700: #1f665a;
+    --saltpan-800: #1d524a;
+    --saltpan-900: #1c453e;
+    --saltpan-950: #0b2825;
+    --shark-50: #f6f6f6;
+    --shark-100: #e7e7e7;
+    --shark-200: #d1d1d1;
+    --shark-300: #b0b0b0;
+    --shark-400: #888888;
+    --shark-500: #6d6d6d;
+    --shark-600: #5d5d5d;
+    --shark-700: #4f4f4f;
+    --shark-800: #454545;
+    --shark-900: #3d3d3d;
+    --shark-950: #222222;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.header .navbar {
+    padding: 24px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    box-shadow: none;
+    transition: 0.3s;
+}
+
+.header.scroller .navbar {
+    background: var(--saltpan-50);
+    box-shadow: 0px 8px 45px rgba(34, 34, 34, 0.1);
+}
+
+.link {
+    font-weight: 600;
+    color: var(--shark-950);
+}
+
+section {
+    padding: 24px 100px;
+    height: 100vh;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 100px;
+    background: var(--saltpan-500);
+    color: var(--shark-50);
+}
+
+.hero .text {
+    margin: 16px 0 24px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: 4px;
+    transition: 0.5s;
+    box-shadow: none;
+}
+
+.btn:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 8px 45px rgba(34, 34, 34, 0.1);
+}
+
+.btn-primary {
+    background: var(--saltpan-950);
+    color: inherit;
 }
