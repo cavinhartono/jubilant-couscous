@@ -12,7 +12,8 @@ class HomepageController extends Controller
             'title_to_hero' => 'Curated, high quality style inspiration.',
             'text_to_hero' => 'New looks every week.',
             'link_to_hero' => '/explore',
-            'label_to_hero' => 'Explore now'
+            'label_to_hero' => 'Explore now',
+            'img' => 'img/homepage.png'
         ]);
     }
 

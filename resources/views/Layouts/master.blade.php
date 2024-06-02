@@ -19,9 +19,7 @@
         {{ $subtitle_to_hero }}
       </p>
       <a href="{{ $link_to_hero }}" class="link btn btn-primary"> {{ $label_to_hero }} </a>
-    </section>
-    <section class="about">
-
+      <img src=" {{ asset($img) }} " class="img">
     </section>
     @yield('content')
   </main>
