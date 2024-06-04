@@ -14,14 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome', [
-        'title_to_hero' => 'Curated, high quality style inspiration.',
-        'text_to_hero' => 'New looks every week.',
-        'link_to_hero' => '/explore',
-        'label_to_hero' => 'Explore now'
-    ]);
+Route::controller(HomepageController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/about', 'about');
+    Route::get('/explore', 'explore');
 });
-
-Route::get('/about', [HomepageController::class, 'about']);
-Route::get('/explore', [HomepageController::class, 'explore']);

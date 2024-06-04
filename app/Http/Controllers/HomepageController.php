@@ -9,8 +9,9 @@ class HomepageController extends Controller
     function index()
     {
         return view('index', [
+            'title' => 'Homepage',
             'title_to_hero' => 'Curated, high quality style inspiration.',
-            'text_to_hero' => 'New looks every week.',
+            'subtitle_to_hero' => 'New looks every week.',
             'link_to_hero' => '/explore',
             'label_to_hero' => 'Explore now',
             'img' => 'img/homepage.png'
