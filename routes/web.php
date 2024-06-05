@@ -19,3 +19,7 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/about', 'about');
     Route::get('/explore', 'explore');
 });
+
+Route::get('/master', function () {
+    return view("Layouts.Main");
+});
