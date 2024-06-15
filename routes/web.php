@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,6 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/explore', 'explore');
 });
 
-Route::get('/master', function () {
-    return view("Layouts.Main");
+Route::controller(BlogController::class)->group(function () {
+    Route::get('/blog', 'index');
 });
