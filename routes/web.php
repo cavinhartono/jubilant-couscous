@@ -21,6 +21,4 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/explore', 'explore');
 });
 
-Route::controller(BlogController::class)->group(function () {
-    Route::get('/blog', 'index');
-});
+Route::resource('/blog', BlogController::class);

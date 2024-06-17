@@ -12,8 +12,8 @@ class BlogController extends Controller
      */
     public function index(Blog $blog)
     {
-        $blogs = $blog->all();
-        return view('Blog.index', compact(['blogs']));
+        // $blogs = $blog->all();
+        return view('Blog.index');
     }
 
     /**
@@ -59,8 +59,8 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id, Blog $blog)
     {
-        //
+        $blog->deleteOrFail();
     }
 }
