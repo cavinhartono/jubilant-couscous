@@ -12,7 +12,7 @@ class BlogController extends Controller
      */
     public function index(Blog $blog)
     {
-        // $blogs = $blog->all();
+        $blogs = $blog->all();
         return view('Blog.index');
     }
 
@@ -29,7 +29,14 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|unique:blogs,title',
+            'desc' => 'required'
+        ]);
+
+        Blog::create($request->all());
+
+        return redirect()->route('blog.index')->with('success', 'Blog berhasil ditambah!');
     }
 
     /**
@@ -37,6 +44,7 @@ class BlogController extends Controller
      */
     public function show(string $id)
     {
+        $blog = Blog::findOrFail($id);
         return view('Blog.show');
     }
 
@@ -45,6 +53,7 @@ class BlogController extends Controller
      */
     public function edit(string $id)
     {
+        $blog = Blog::findOrFail($id);
         return view('Blog.edit');
     }
 
@@ -53,14 +62,25 @@ class BlogController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|unique:blogs,title',
+            'desc' => 'required'
+        ]);
+
+        $blog = Blog::findOrFail($id);
+        $blog->update($request->all());
+
+        return redirect()->route('blog.index')->with('update', 'Blog berhasil diedit!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id, Blog $blog)
+    public function destroy(string $id)
     {
-        $blog->deleteOrFail();
+        $blog = Blog::findOrFail($id);
+        $blog->delete();
+
+        return redirect()->route('blog.index')->with('destroy', 'Blog berhasil dihapus!');
     }
 }
