@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -19,9 +20,10 @@ class BlogController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Category $category)
     {
-        return view('Blog.create');
+        $categories = $category->all();
+        return view('Blog.create', compact(['categories']));
     }
 
     /**

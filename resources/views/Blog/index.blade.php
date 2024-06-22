@@ -5,6 +5,7 @@
   <h3 class="card-title">Blog Lists</h3>
 </div>
 <div class="card-body">
+  <a href="{{ route('blog.create') }}" class="btn btn-primary">Tambah</a>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -15,12 +16,12 @@
       </tr>
     </thead>
     <tbody>
-      @forelse ($blogs as $blog)
+      {{-- @forelse ($blogs as $blog)
       <tr>
         <td> {{ $loop->iteration }} </td>
-        <td> {{ $blog->name }} </td>
-        <td> {{ $blog->desc }} </td>
-        <td><span class="badge bg-danger">55%</span></td>
+      <td> {{ $blog->name }} </td>
+      <td> {{ $blog->desc }} </td>
+      <td><span class="badge bg-danger">55%</span></td>
       </tr>
       @empty
       <tr>
@@ -33,7 +34,7 @@
         </td>
         <td><span class="badge bg-warning">70%</span></td>
       </tr>
-      @endforelse
+      @endforelse --}}
     </tbody>
   </table>
 </div>
