@@ -47,7 +47,7 @@ class BlogController extends Controller
     public function show(string $id)
     {
         $blog = Blog::findOrFail($id);
-        return view('Blog.show');
+        return view('Blog.show', compact(['blog']));
     }
 
     /**
@@ -55,8 +55,10 @@ class BlogController extends Controller
      */
     public function edit(string $id)
     {
+        $categories = Category::all();
         $blog = Blog::findOrFail($id);
-        return view('Blog.edit');
+
+        return view('Blog.edit', compact(['blog', 'categories']));
     }
 
     /**
@@ -65,10 +67,9 @@ class BlogController extends Controller
     public function update(Request $request, string $id)
     {
         $this->validate($request, [
-            'title' => 'required|unique:blogs,title',
+            'title' => 'required',
             'desc' => 'required'
         ]);
-
         $blog = Blog::findOrFail($id);
         $blog->update($request->all());
 
