@@ -11,9 +11,9 @@ class BlogController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Blog $blog)
+    public function index()
     {
-        $blogs = $blog->all();
+        $blogs = Blog::with('categories')->get();
         return view('Blog.index', ['blogs' => $blogs]);
     }
 
@@ -70,8 +70,7 @@ class BlogController extends Controller
             'title' => 'required',
             'desc' => 'required'
         ]);
-        $blog = Blog::findOrFail($id);
-        $blog->update($request->all());
+        $blog = Blog::findOrFail($id)->update($request->all());
 
         return redirect()->route('blog.index')->with('update', 'Blog berhasil diedit!');
     }

@@ -35,20 +35,7 @@
       <tr>
         <td> {{ $loop->iteration }} </td>
         <td style="text-transform: capitalize;">
-          @switch($blog->category_id)
-          @case(1)
-          Olahraga
-          @break
-          @case(2)
-          Kesehatan
-          @break
-          @case(3)
-          Teknologi
-          @break
-
-          @default
-          Tidak Memiliki Genre
-          @endswitch
+          {{ $blog->categories->name }}
         </td>
         <td> {{ $blog->title }} </td>
         <td>
@@ -57,7 +44,7 @@
           <form method="POST" action="{{ route('blog.destroy', $blog->id) }}">
             @csrf
             @method('DELETE')
-            <button class="btn btn-danger">Hapus</button>
+            <button class="btn btn-danger" onclick="confirm('Apakah {{ $blog->title }} dihapus?')">Hapus</button>
           </form>
         </td>
       </tr>
